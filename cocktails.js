@@ -122,8 +122,7 @@ module.exports = {
             ["Maracujasirup", 2, "cl"],
             ["Ananassaft", 4, "cl"],
             ["Orangensaft", 4, "cl"],
-            ["Zitronensaft", 4, "cl"],
-            write
+            ["Zitronensaft", 4, "cl"]
         ],
         "Alkohol": true
     }, {
