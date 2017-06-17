@@ -9,7 +9,7 @@ app.get("/", (req, res) => res.send({
 }));
 
 app.get("/write", (req, res) => {
-    mongo(process.env.MONGO_URL).cocktails.save(require("cocktails.js"), data => res.send(data));
+    mongo(process.env.MONGO_URL).cocktails.save(require("./cocktails.js"), data => res.send(data));
 });
 
 
