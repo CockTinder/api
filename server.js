@@ -8,7 +8,9 @@ app.get("/", (req, res) => res.send({
     message: "Please check the API docs at https://github.com/cocktinder/api"
 }));
 
-app.get("/mongodb", (req, res) => res.send(process.env.MONGO_URL));
+app.get("/write", (req, res) => {
+    mongo(process.env.MONGO_URL).cocktails.save(require("cocktails.js"), data => res.send(data));
+});
 
 
 
