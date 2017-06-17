@@ -8,4 +8,4 @@ app.get("/", (req, res) => res.send({
     message: "Please check the API docs at https://github.com/cocktinder/api"
 }));
 
-app.listen(3000, () => console.log("Online at :3000"));
+app.listen(5000, () => console.log("Online at :3000"));
