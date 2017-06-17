@@ -8,4 +8,8 @@ app.get("/", (req, res) => res.send({
     message: "Please check the API docs at https://github.com/cocktinder/api"
 }));
 
-app.listen(5000, () => console.log("Online at :3000"));
+app.get("/mongodb", (req, res) => res.send(process.env.MONGO_URL));
+
+
+
+app.listen(process.env.PORT || 5000, () => console.log("Online at :" + process.env.PORT || 5000));
