@@ -20,7 +20,7 @@ const credentials = require("./credentials.js");
 passport.use(new GoogleStrategy({
         clientID: credentials.google.id,
         clientSecret: credentials.google.secret,
-        callbackURL: "https://mixme.one/home.php"
+        callbackURL: "http://localhost:5000/auth/google/callback"
     },
     (accessToken, refreshToken, profile, cb) => {
         mongo(process.env.MONGO_URL).users.find({
@@ -47,6 +47,14 @@ app.get( '/auth/google/callback',
 		successRedirect: '/auth/google/success',
 		failureRedirect: '/auth/google/failure'
 }));
+
+app.get('/auth/google/success', (req, res) => {
+    res.send({error: false, message: "login succeded"});
+});
+
+app.get('/auth/google/failure', (req, res) => {
+    res.send({error: false, message: "loggin faild"});
+});
 
 
 
