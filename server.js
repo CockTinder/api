@@ -20,7 +20,7 @@ const credentials = require("./credentials.js");
 passport.use(new GoogleStrategy({
         clientID: credentials.google.id,
         clientSecret: credentials.google.secret,
-        callbackURL: "/auth/google/callback"
+        callbackURL: "http://codeproject.ga:62773/auth/google/callback"
     },
     (accessToken, refreshToken, profile, cb) => {
         mongo(process.env.MONGO_URL).users.find({
