@@ -20,7 +20,7 @@ const credentials = require("./credentials.js");
 passport.use(new GoogleStrategy({
         clientID: credentials.google.id,
         clientSecret: credentials.google.secret,
-        callbackURL: "http://kloenk.schedar.uberspace.de:5000"
+        callbackURL: "https://mixme.one/home.php"
     },
     (accessToken, refreshToken, profile, cb) => {
         mongo(process.env.MONGO_URL).users.find({
