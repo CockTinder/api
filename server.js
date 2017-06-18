@@ -20,7 +20,7 @@ const credentials = require("./credentials.js");
 passport.use(new GoogleStrategy({
         clientID: credentials.google.id,
         clientSecret: credentials.google.secret,
-        callbackURL: "http://mixme.one/home.php"
+        callbackURL: "http://kloenk.schedar.uberspace.de:5000"
     },
     (accessToken, refreshToken, profile, cb) => {
         mongo(process.env.MONGO_URL).users.find({
@@ -37,6 +37,16 @@ passport.use(new GoogleStrategy({
     }
 ));
 
+app.get('/auth/google', passport.authenticate('google', { scope: [
+    'https://www.googleapis.com/auth/plus.login',
+  	'https://www.googleapis.com/auth/plus.profile.emails.read'
+]}));
+
+app.get( '/auth/google/callback',
+	passport.authenticate( 'google', {
+		successRedirect: '/auth/google/success',
+		failureRedirect: '/auth/google/failure'
+}));
 
 
 
