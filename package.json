@@ -11,6 +11,6 @@
   "dependencies": {
     "express": "^4.15.3",
     "mongojs": "^2.4.0",
-    "passport": "^0.3.2",
+    "passport": "^0.3.2"
   }
 }
